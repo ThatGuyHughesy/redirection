@@ -1,9 +1,14 @@
 {
   "name": "ProjectFreeTV Redirect",
-  "version": "0.1",
-  "description": "Skips Ad Page On ProjectFreeTV And Goes Straight To Video",
+  "version": "0.2",
+  "description": "No More 10 Second Wait",
   "background": {
     "page": "home.html"
+  },
+  "icons": {
+    "16": "16.png",
+    "48": "48.png",
+    "128": "128.png"
   },
   "content_scripts": [{
     "matches": ["http://www.free-tv-video-online.info/*"],
