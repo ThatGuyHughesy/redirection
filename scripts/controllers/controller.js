@@ -4,6 +4,10 @@ angular.module('projectFreeTVRedirect', ['ngStorage']).controller('MainCtrl', fu
 
   $scope.toggle = $localStorage.toggle;
 
+  if (localStorage['ngStorage-toggle'] == null) {
+    $localStorage.toggle = true;
+  }
+
   $scope.save = function() {
     $localStorage.toggle = $scope.toggle;
   };
