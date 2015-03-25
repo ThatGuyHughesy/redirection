@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-ng-app="projectFreeTVRedirect" ng-csp>
+<html data-ng-app="redirection" ng-csp>
 
 <head>
   <script src="scripts/angular/angular.min.js"></script>
@@ -16,14 +16,13 @@
 
 <body data-ng-controller="MainCtrl">
   <div class="popup">
-    <h1>ProjectFreeTv Redirect</h1>
-    <h2>No More 10 Second Wait!</h2>
-    <div class="toggle">
-      <input ng-change="save()" ng-model="toggle" type="checkbox" name="toggle" class="toggle-checkbox" id="toggle" checked>
-      <label class="toggle-label" for="toggle">
-        <span class="toggle-inner"></span>
-        <span class="toggle-switch"></span>
-      </label>
+    <h1>Redirection</h1>
+    <h2>No More Waiting Around For Videos</h2>
+    <div class="power">
+      <a href="" ng-click="save()">
+        <span class="glyphicon glyphicon-off" ng-class="power"></span>
+      </a>
+      <h3 ng-class="power">Click To Power {{onoff}}</h3>
     </div>
   </div>
 </body>

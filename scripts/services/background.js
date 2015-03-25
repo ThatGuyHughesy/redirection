@@ -1,7 +1,7 @@
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.method == "getLocalStorage")
+  if (request.method == "getPower")
     sendResponse({
-      data: localStorage['ngStorage-toggle']
+      data: localStorage['ngStorage-powerOn']
     });
   else
     sendResponse({});
