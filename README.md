@@ -1,2 +1,7 @@
-# ProjectFreeTVRedirect
-Chrome extension that skips ProjectFreeTV's ad page and goes straight to the video.
+# Redirection
+Chrome extension that redirects URL to skip waiting/ad pages on video sites.
+
+Current list:
+
+www.free-tv-video-online.info - “Please Wait 10 Seconds” page
+watchseries.ag - “Click Here To Play” page
