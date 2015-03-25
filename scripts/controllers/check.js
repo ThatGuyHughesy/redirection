@@ -1,23 +1,28 @@
+var watchseries_base_url = "http://watchseries.ag/open/cale/";
+var projectfreetv_base_url = "http://www.free-tv-video-online.info/interstitial2.html?lnk";
+var url = window.document.URL;
+
 chrome.runtime.sendMessage({
-  method: "getLocalStorage",
+  method: "getPower",
   key: "status"
 }, function(response) {
-  var toggle = response.data;
-  if (toggle == 'true') {
-    var base_url = "http://www.free-tv-video-online.info/interstitial2.html?lnk";
-    if (window.document.URL.indexOf(base_url) > -1) {
-      var newurl = "http://www.free-tv-video-online.info" + getVideoURL();
+  if (response.data == 'true') {
+    if (url.indexOf(projectfreetv_base_url) > -1) {
       chrome.extension.sendRequest({
-        redirect: newurl
+        redirect: getProjectFreeTVVideoURL(url)
+      });
+    } else if (url.indexOf(watchseries_base_url) > -1) {
+      chrome.extension.sendRequest({
+        redirect: $('.myButton').attr("href")
       });
     }
-
-    function getVideoURL() {
-      var name = "lnk";
-      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }
   }
-});
+})
+
+function getProjectFreeTVVideoURL(url) {
+  var name = "lnk";
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(url);
+  return "http://www.free-tv-video-online.info" + decodeURIComponent(results[1].replace(/\+/g, " "));
+};

@@ -1,7 +1,7 @@
 {
-  "name": "ProjectFreeTV Redirect",
-  "version": "0.2",
-  "description": "No More 10 Second Wait",
+  "name": "Redirection",
+  "version": "0.3",
+  "description": "No More Waiting Around For Videos",
   "background": {
     "scripts": ["scripts/services/background.js", "scripts/services/redirect.js"]
   },
@@ -11,11 +11,11 @@
     "128": "images/128.png"
   },
   "content_scripts": [{
-    "matches": ["http://www.free-tv-video-online.info/*"],
-    "js": ["scripts/controllers/check.js"]
+    "matches": ["http://www.free-tv-video-online.info/*", "http://watchseries.ag/open/cale/*"],
+    "js": ["scripts/jquery/jquery-2.1.3.min.js", "scripts/controllers/check.js"]
   }],
   "browser_action": {
-    "default_icon": "images/icon.png",
+    "default_icon": "images/logo.png",
     "default_popup": "home.html"
   },
   "manifest_version": 2,

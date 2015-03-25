@@ -1,15 +1,36 @@
 'use strict';
 
-angular.module('projectFreeTVRedirect', ['ngStorage']).controller('MainCtrl', function($scope, $localStorage) {
+angular.module('redirection', ['ngStorage']).controller('MainCtrl', function($scope, $localStorage) {
 
-  $scope.toggle = $localStorage.toggle;
+  $scope.powerOn = $localStorage.powerOn;
 
-  if (localStorage['ngStorage-toggle'] == null) {
-    $localStorage.toggle = true;
-  }
+  $scope.on = function() {
+    $scope.onoff = 'Off';
+    $scope.power = 'on';
+  };
+
+  $scope.off = function() {
+    $scope.onoff = 'On';
+    $scope.power = 'off';
+  };
 
   $scope.save = function() {
-    $localStorage.toggle = $scope.toggle;
+    if ($localStorage.powerOn) {
+      $localStorage.powerOn = false;
+      $scope.off();
+    } else {
+      $localStorage.powerOn = true;
+      $scope.on();
+    }
   };
+
+  if (localStorage['ngStorage-powerOn'] == null) {
+    $localStorage.powerOn = true;
+    $scope.on();
+  } else if ($scope.powerOn) {
+    $scope.on();
+  } else {
+    $scope.off();
+  }
 
 });
