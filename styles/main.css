@@ -1,5 +1,6 @@
 body {
   background-color: #00c59e;
+  font-family: 'Oswald', sans-serif;
 }
 .popup {
   width: 300px;
@@ -8,20 +9,22 @@ body {
 }
 h1 {
   color: #fff;
-  font-size: 36px;
+  font-size: 48px;
+  font-style: italic;
+  font-weight: 700;
   margin: 25px 0 0 0;
 }
 h2 {
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
   font-style: italic;
-  margin: 5px 0 25px 0;
+  margin: 0 0 25px 0;
 }
 h3 {
   color: #fff;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 400;
   margin: -10px 0 25px 0;
 }
 a, a:focus, a:hover, a:visited {
