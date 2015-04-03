@@ -1,6 +1,6 @@
 {
   "name": "Redirection",
-  "version": "0.3",
+  "version": "0.4",
   "description": "No More Waiting Around For Videos",
   "background": {
     "scripts": ["scripts/services/background.js", "scripts/services/redirect.js"]
@@ -11,7 +11,7 @@
     "128": "images/128.png"
   },
   "content_scripts": [{
-    "matches": ["http://www.free-tv-video-online.info/*", "http://watchseries.ag/open/cale/*"],
+    "matches": ["http://www.free-tv-video-online.info/*", "http://projectfreetv.ch/watch/*", "http://www.primewire.ag/*", "http://watchseries.ag/open/cale/*", "http://watchseriestv.to/open/cale/*", "http://gorillavid.in/*", "http://daclips.in/*", "http://movpod.in/*", "http://sockshare.com/*", "http://firedrive.com/*", "http://vodlocker.com/*", "http://vidxden.com/*", "http://vidbux.com/*", "http://vidbull.com/*", "http://movshare.net/*", "http://played.to/*", "http://bestreams.net/*", "http://filehoot.com/*", "http://www.thevideo.me/*"],
     "js": ["scripts/jquery/jquery-2.1.3.min.js", "scripts/controllers/check.js"]
   }],
   "browser_action": {
