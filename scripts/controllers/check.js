@@ -40,34 +40,14 @@ chrome.runtime.sendMessage({
       redirect($('.push_button').attr("href"));
     } else if (url.indexOf(primewire_base_url) > -1) {
       redirect($('noframes').html());
-    } else if (url.indexOf(gorillavid_base_url) > -1) {
+    } else if (url.indexOf(gorillavid_base_url) > -1 || url.indexOf(daclips_base_url) > -1 || url.indexOf(movpod_base_url) > -1 || url.indexOf(vodlocker_base_url) > -1 || url.indexOf(vidbull_base_url) > -1 || url.indexOf(played_base_url) > -1 || url.indexOf(bestreams_base_url) > -1 || url.indexOf(thevideo_base_url) > -1) {
       clickButtonById('btn_download');
-    } else if (url.indexOf(daclips_base_url) > -1) {
-      clickButtonById('btn_download');
-    } else if (url.indexOf(movpod_base_url) > -1) {
-      clickButtonById('btn_download');
-    } else if (url.indexOf(sockshare_base_url) > -1) {
+    } else if (url.indexOf(sockshare_base_url) > -1 || url.indexOf(firedrive_base_url) > -1) {
       clickButtonById('submitButton');
-    } else if (url.indexOf(firedrive_base_url) > -1) {
-      clickButtonById('submitButton');
-    } else if (url.indexOf(vodlocker_base_url) > -1) {
-      clickButtonById('btn_download');
-    } else if (url.indexOf(vidxden_base_url) > -1) {
+    } else if (url.indexOf(vidxden_base_url) > -1 || url.indexOf(vidbux_base_url) > -1 || url.indexOf(filehoot_base_url) > -1) {
       clickButtonByName('method_free');
-    } else if (url.indexOf(vidbux_base_url) > -1) {
-      clickButtonByName('method_free');
-    } else if (url.indexOf(vidbull_base_url) > -1) {
-      clickButtonById('btn_download');
     } else if (url.indexOf(movshare_base_url) > -1) {
       clickButtonByName('submit');
-    } else if (url.indexOf(played_base_url) > -1) {
-      clickButtonById('btn_download');
-    } else if (url.indexOf(bestreams_base_url) > -1) {
-      clickButtonById('btn_download');
-    } else if (url.indexOf(filehoot_base_url) > -1) {
-      clickButtonByName('method_free');
-    } else if (url.indexOf(thevideo_base_url) > -1) {
-      clickButtonById('btn_download');
     }
   }
 })
