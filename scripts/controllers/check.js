@@ -1,4 +1,4 @@
-// Tab URL
+// Tab URL`
 var url = window.document.URL;
 
 // TV show sites URLs
@@ -57,7 +57,14 @@ function getFreeTVVideoURL(url) {
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
     results = regex.exec(url);
-  return "http://www.free-tv-video-online.info" + decodeURIComponent(results[1].replace(/\+/g, " "));
+  if(checkIfExternalRedirect(results[1])){
+    return decodeURIComponent(results[1].replace(/\+/g, " "));
+  } else {
+    return "http://www.free-tv-video-online.info" + decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+};
+function checkIfExternalRedirect(url) {
+  return url.indexOf("video.tt") > -1;
 };
 
 function redirect(url) {
