@@ -6,8 +6,10 @@ var watchseries_base_url = "http://watchseries.ag/open/cale/";
 var watchtvseries_se_base_url = "http://watchtvseries.se/open/cale/";
 var watchtvseries_vc_base_url = "http://watchtvseries.vc/open/cale/";
 var watchseriestv_base_url = "http://watchseriestv.to/open/cale/";
+var watch_series_tv_base_url = "http://watch-series-tv.to/open/cale/";
 var freetv_base_url = "http://www.free-tv-video-online.info/interstitial2.html?lnk";
-var projectfreetv_base_url = "http://projectfreetv.ch/watch/";
+var projectfreetv_ch_base_url = "http://projectfreetv.ch/watch/";
+var projectfreetv_so_base_url = "http://projectfreetv.so/watch/";
 var primewire_base_url = "http://www.primewire.ag/external.php?";
 
 // Video hosting sites URLS
@@ -31,55 +33,58 @@ chrome.runtime.sendMessage({
   method: "getPower",
   key: "status"
 }, function(response) {
-  if ( response.data == 'true' ) {
-    if ( url.indexOf(freetv_base_url) > -1 ) {
+  if (response.data == 'true') {
+    if (url.indexOf(freetv_base_url) > -1) {
       redirect(getFreeTVVideoURL(url));
-    } else if ( url.indexOf(projectfreetv_base_url) > -1 ) {
+    } else if (url.indexOf(projectfreetv_ch_base_url) > -1 ||
+      url.indexOf(projectfreetv_so_base_url) > -1) {
       redirect($('a[rel=\'nofollow\']').attr('href'));
-    } else if ( url.indexOf(watchseries_base_url) > -1 ||
-                url.indexOf(watchtvseries_se_base_url) > -1 ||
-                url.indexOf(watchtvseries_vc_base_url) > -1  ) {
+    } else if (url.indexOf(watchseries_base_url) > -1 ||
+      url.indexOf(watchtvseries_se_base_url) > -1 ||
+      url.indexOf(watchtvseries_vc_base_url) > -1) {
       redirect($('.myButton').attr("href"));
-    } else if ( url.indexOf(watchseriestv_base_url) > -1 ) {
+    } else if (url.indexOf(watchseriestv_base_url) > -1 ||
+      url.indexOf(watch_series_tv_base_url) > -1) {
       redirect($('.push_button').attr("href"));
-    } else if ( url.indexOf(primewire_base_url) > -1 ) {
+    } else if (url.indexOf(primewire_base_url) > -1) {
       redirect($('noframes').html());
-    } else if ( url.indexOf(gorillavid_base_url) > -1 ||
-                url.indexOf(daclips_base_url) > -1 ||
-                url.indexOf(movpod_base_url) > -1 ||
-                url.indexOf(vodlocker_base_url) > -1 ||
-                url.indexOf(vidbull_base_url) > -1 ||
-                url.indexOf(played_base_url) > -1 ||
-                url.indexOf(bestreams_base_url) > -1 ||
-                url.indexOf(thevideo_base_url) > -1 ) {
+    } else if (url.indexOf(gorillavid_base_url) > -1 ||
+      url.indexOf(daclips_base_url) > -1 ||
+      url.indexOf(movpod_base_url) > -1 ||
+      url.indexOf(vodlocker_base_url) > -1 ||
+      url.indexOf(vidbull_base_url) > -1 ||
+      url.indexOf(played_base_url) > -1 ||
+      url.indexOf(bestreams_base_url) > -1 ||
+      url.indexOf(thevideo_base_url) > -1) {
       clickButtonById('btn_download');
-    } else if ( url.indexOf(sockshare_base_url) > -1 ||
-                url.indexOf(firedrive_base_url) > -1 ) {
+    } else if (url.indexOf(sockshare_base_url) > -1 ||
+      url.indexOf(firedrive_base_url) > -1) {
       clickButtonById('submitButton');
-    } else if ( url.indexOf(vidxden_base_url) > -1 ||
-                url.indexOf(vidbux_base_url) > -1 ||
-                url.indexOf(filehoot_base_url) > -1 ) {
+    } else if (url.indexOf(vidxden_base_url) > -1 ||
+      url.indexOf(vidbux_base_url) > -1 ||
+      url.indexOf(filehoot_base_url) > -1) {
       clickButtonByName('method_free');
-    } else if ( url.indexOf(movshare_base_url) > -1 ) {
+    } else if (url.indexOf(movshare_base_url) > -1) {
       clickButtonByName('submit');
     }
   }
-})
+});
 
 function getFreeTVVideoURL(url) {
   var name = "lnk";
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
     results = regex.exec(url);
-  if(checkIfExternalRedirect(results[1])){
+  if (checkIfExternalRedirect(results[1])) {
     return decodeURIComponent(results[1].replace(/\+/g, " "));
   } else {
     return "http://www.free-tv-video-online.info" + decodeURIComponent(results[1].replace(/\+/g, " "));
   }
-};
+}
+
 function checkIfExternalRedirect(url) {
   return url.indexOf("video.tt") > -1;
-};
+}
 
 function redirect(url) {
   chrome.extension.sendRequest({
@@ -104,7 +109,7 @@ function clickButtonById(buttonId) {
       clickButton(button);
     }
   } catch (err) {
-    'Error redirecting!'
+    'Error redirecting!';
   }
 }
 
@@ -113,6 +118,6 @@ function clickButtonByName(buttonName) {
     var button = document.getElementsByName(buttonName)[0];
     clickButton(button);
   } catch (err) {
-    'Error redirecting!'
+    'Error redirecting!';
   }
 }
