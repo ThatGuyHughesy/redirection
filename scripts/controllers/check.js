@@ -1,12 +1,14 @@
-// Tab URL`
+// Tab URL
 var url = window.document.URL;
 
 // TV show sites URLs
 var watchseries_base_url = "http://watchseries.ag/open/cale/";
+var watchtvseries_se_base_url = "http://watchtvseries.se/open/cale/";
+var watchtvseries_vc_base_url = "http://watchtvseries.vc/open/cale/";
 var watchseriestv_base_url = "http://watchseriestv.to/open/cale/";
 var freetv_base_url = "http://www.free-tv-video-online.info/interstitial2.html?lnk";
 var projectfreetv_base_url = "http://projectfreetv.ch/watch/";
-var primewire_base_url = "http://www.primewire.ag/external.php?"
+var primewire_base_url = "http://www.primewire.ag/external.php?";
 
 // Video hosting sites URLS
 var gorillavid_base_url = "http://gorillavid.in/";
@@ -29,24 +31,36 @@ chrome.runtime.sendMessage({
   method: "getPower",
   key: "status"
 }, function(response) {
-  if (response.data == 'true') {
-    if (url.indexOf(freetv_base_url) > -1) {
+  if ( response.data == 'true' ) {
+    if ( url.indexOf(freetv_base_url) > -1 ) {
       redirect(getFreeTVVideoURL(url));
-    } else if (url.indexOf(projectfreetv_base_url) > -1) {
+    } else if ( url.indexOf(projectfreetv_base_url) > -1 ) {
       redirect($('a[rel=\'nofollow\']').attr('href'));
-    } else if (url.indexOf(watchseries_base_url) > -1) {
+    } else if ( url.indexOf(watchseries_base_url) > -1 ||
+                url.indexOf(watchtvseries_se_base_url) > -1 ||
+                url.indexOf(watchtvseries_vc_base_url) > -1  ) {
       redirect($('.myButton').attr("href"));
-    } else if (url.indexOf(watchseriestv_base_url) > -1) {
+    } else if ( url.indexOf(watchseriestv_base_url) > -1 ) {
       redirect($('.push_button').attr("href"));
-    } else if (url.indexOf(primewire_base_url) > -1) {
+    } else if ( url.indexOf(primewire_base_url) > -1 ) {
       redirect($('noframes').html());
-    } else if (url.indexOf(gorillavid_base_url) > -1 || url.indexOf(daclips_base_url) > -1 || url.indexOf(movpod_base_url) > -1 || url.indexOf(vodlocker_base_url) > -1 || url.indexOf(vidbull_base_url) > -1 || url.indexOf(played_base_url) > -1 || url.indexOf(bestreams_base_url) > -1 || url.indexOf(thevideo_base_url) > -1) {
+    } else if ( url.indexOf(gorillavid_base_url) > -1 ||
+                url.indexOf(daclips_base_url) > -1 ||
+                url.indexOf(movpod_base_url) > -1 ||
+                url.indexOf(vodlocker_base_url) > -1 ||
+                url.indexOf(vidbull_base_url) > -1 ||
+                url.indexOf(played_base_url) > -1 ||
+                url.indexOf(bestreams_base_url) > -1 ||
+                url.indexOf(thevideo_base_url) > -1 ) {
       clickButtonById('btn_download');
-    } else if (url.indexOf(sockshare_base_url) > -1 || url.indexOf(firedrive_base_url) > -1) {
+    } else if ( url.indexOf(sockshare_base_url) > -1 ||
+                url.indexOf(firedrive_base_url) > -1 ) {
       clickButtonById('submitButton');
-    } else if (url.indexOf(vidxden_base_url) > -1 || url.indexOf(vidbux_base_url) > -1 || url.indexOf(filehoot_base_url) > -1) {
+    } else if ( url.indexOf(vidxden_base_url) > -1 ||
+                url.indexOf(vidbux_base_url) > -1 ||
+                url.indexOf(filehoot_base_url) > -1 ) {
       clickButtonByName('method_free');
-    } else if (url.indexOf(movshare_base_url) > -1) {
+    } else if ( url.indexOf(movshare_base_url) > -1 ) {
       clickButtonByName('submit');
     }
   }
