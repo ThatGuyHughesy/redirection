@@ -42,6 +42,6 @@ a, a:focus, a:hover, a:visited {
   transition: color 0.5s ease;
 }
 .off {
-  color: #000;
+  color: #2E2B2B;
   transition: color 0.5s ease;
 }
