@@ -39,7 +39,9 @@ a, a:focus, a:hover, a:visited {
 }
 .on {
   color: #fff;
+  transition: color 0.5s ease;
 }
 .off {
   color: #000;
+  transition: color 0.5s ease;
 }

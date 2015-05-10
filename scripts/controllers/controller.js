@@ -7,13 +7,13 @@ angular.module('redirection', ['ngStorage']).controller('MainCtrl', function($sc
   $scope.on = function() {
     $scope.onoff = 'Off';
     $scope.power = 'on';
-    chrome.browserAction.setIcon({path: "../../images/logo.png"});
+    chrome.browserAction.setIcon({path: "../../images/48.png"});
   };
 
   $scope.off = function() {
     $scope.onoff = 'On';
     $scope.power = 'off';
-    chrome.browserAction.setIcon({path: "../../images/logo-off.png"});
+    chrome.browserAction.setIcon({path: "../../images/logo-off-48.png"});
   };
 
   $scope.save = function() {
