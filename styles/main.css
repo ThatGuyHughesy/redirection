@@ -1,47 +1,122 @@
+html,
 body {
-  background-color: #00c59e;
-  font-family: 'Oswald', sans-serif;
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
 }
+
+a,
+a:focus,
+a:hover,
+a:visited {
+    border: none;
+    text-decoration: none;
+    outline: none;
+}
+
 .popup {
-  width: 300px;
-  height: 185px;
-  text-align: center;
+    width: 260px;
+    text-align: center;
 }
-h1 {
-  color: #fff;
-  font-size: 48px;
-  font-style: italic;
-  font-weight: 700;
-  margin: 25px 0 0 0;
+
+.header {
+    height: 100px;
+    width: 100%;
+    margin: 0 0 100px 0;
+    background-color: #252c41;
 }
-h2 {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 300;
-  font-style: italic;
-  margin: 0 0 25px 0;
+
+.header .logo {
+    position: absolute;
+    top: 20px;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    background-color: #252c41;
 }
-h3 {
-  color: #fff;
-  font-size: 12px;
-  font-weight: 400;
-  margin: -10px 0 25px 0;
+
+.header .logo img {
+    height: 150px;
+    width: 150px;
 }
-a, a:focus, a:hover, a:visited {
-  border: none;
-  text-decoration: none;
-  outline: none;
+
+.header .power {
+    position: absolute;
+    top: 8px;
+    bottom: auto;
+    left: 12px;
+    right: auto;
+    font-size: 32px;
+    font-weight: 700;
+    margin: auto;
 }
-.power {
-  font-size: 48px;
-  font-weight: 700;
-  margin: 5px 0 25px 0;
+
+.header .power .on {
+    color: #8CD790;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
 }
-.on {
-  color: #fff;
-  transition: color 0.5s ease;
+
+.header .power .off {
+    color: #f1404b;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
 }
-.off {
-  color: #2E2B2B;
-  transition: color 0.5s ease;
+
+.content .redirections h1 {
+    color: #bbbbbb;
+    font-size: 12px;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+.content .redirections h2 {
+    color: #bbbbbb;
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+.content .links {
+    margin: 20px 0 2px 0;
+}
+
+.content .links a {
+    color: #aaaaaa;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    padding: 0 2px;
+}
+
+.content .version {
+    color: #aaaaaa;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
