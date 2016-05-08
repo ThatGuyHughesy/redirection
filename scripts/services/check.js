@@ -24,7 +24,7 @@ function checkUrl(element, index, array) {
                 redirect($('.myButton:visible').attr("href"));
                 break;
             case 3:
-                redirect($('.push_button:visible').attr("href"));
+                redirect($('.push_button.blue:visible').attr("href"));
                 break;
             case 4:
                 redirect($('noframes').html());
