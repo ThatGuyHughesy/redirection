@@ -1,41 +1,51 @@
-'use strict';
+var count;
+var power;
 
-angular.module('redirection', ['ngStorage']).controller('MainCtrl', function($scope, $localStorage) {
+$(document).ready(function() {
+    count = localStorage['count'];
+    if (count == null) {
+        count = 0;
+        localStorage['count'] = count;
+    }
 
-    $scope.on = function() {
-        $scope.state = 'on';
+    power = localStorage['power'];
+    if (power == null) {
+        alert('ehy')
+        power = true;
+        localStorage['power'] = power;
+    }
+
+    setState();
+
+    $('#toggle').click(function(event) {
+        event.preventDefault();
+        changeState();
+    });
+
+    function changeState() {
+        var toggled = power = !power;
+        Promise.resolve(toggled).then(function(result) {
+            setState();
+        });
     };
 
-    $scope.off = function() {
-        $scope.state = 'off';
-    };
-
-    $scope.changeState = function() {
-        if ($localStorage.power) {
-            $localStorage.power = false;
-            $scope.off();
+    function setState() {
+        localStorage['power'] = power;
+        if (power) {
+            on();
         } else {
-            $localStorage.power = true;
-            $scope.on();
+            off();
         }
-    };
-    
-    $scope.init = function() {
-        $scope.count = $localStorage.count;
-        if (localStorage['ngStorage-count'] == null) {
-            $localStorage.count = 0;
-            $scope.count = $localStorage.count;
-        }
-
-        $scope.power = $localStorage.power;
-        if (localStorage['ngStorage-power'] == null) {
-            $localStorage.power = true;
-            $scope.on();
-        } else if ($scope.power) {
-            $scope.on();
-        } else {
-            $scope.off();
-        }
+        $('#count').html(count);
     };
 
+    function on() {
+        $('#power').removeClass('off');
+        $('#power').addClass('on');
+    };
+
+    function off() {
+        $('#power').removeClass('on');
+        $('#power').addClass('off');
+    };
 });

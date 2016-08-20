@@ -1,8 +1,24 @@
+@font-face {
+    font-family: "Aileron";
+    src: url(font-path('aileron-black-webfont.eot');
+    src: url(font-path('aileron-black-webfont.eot?#iefix') format('embedded-opentype'), url(font-path('aileron-black-webfont.woff2') format('woff2'), url(font-path('aileron-black-webfont.woff') format('woff'), url(font-path('aileron-black-webfont.ttf') format('truetype'), url(font-path('aileron-black-webfont.svg#aileronblack') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url(font-path('aileron-bold-webfont.eot');
+    src: url(font-path('aileron-bold-webfont.eot?#iefix') format('embedded-opentype'), url(font-path('aileron-bold-webfont.woff2') format('woff2'), url(font-path('aileron-bold-webfont.woff') format('woff'), url(font-path('aileron-bold-webfont.ttf') format('truetype'), url(font-path('aileron-bold-webfont.svg#aileronbold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
 html,
 body {
     height: 100%;
     width: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Aileron', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #fff;
