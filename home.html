@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-<html data-ng-app="redirection" ng-csp>
+<html>
 
 <head>
-    <!-- Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700,900,200,100' rel='stylesheet' type='text/css'>
     <!-- Font-Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/font-awesome/css/font-awesome.min.css">
     <!-- JQuery -->
     <script src="scripts/jquery/jquery-2.1.3.min.js"></script>
-    <!-- AngularJS Modules -->
-    <script src="scripts/angular/angular.min.js"></script>
-    <script src="scripts/angular/angular-ng-storage.js"></script>
     <!-- Controllers -->
     <script src="scripts/controllers/main.js"></script>
     <!-- Styling -->
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
-<body data-ng-controller="MainCtrl">
+<body>
     <div class="popup">
         <div class="header">
             <div class="logo">
-                <img src="images/r.png">
+                <img src="images/logo.png">
             </div>
-            <a href="" ng-click="changeState()" title="Turn Redirection On/Off">
+            <a href="" id="toggle" title="Turn Redirection On/Off">
                 <div class="power">
-                    <span class="fa fa-power-off" ng-class="state"></span>
+                    <span id="power" class="fa fa-power-off"></span>
                 </div>
             </a>
         </div>
-        <div class="content" ng-init="init()">
+        <div class="content">
             <div class="redirections">
                 <h1>Since Install</h1>
-                <h2>{{count}} Redirections</h2>
+                <h2><span id="count"></span> Redirections</h2>
             </div>
             <div class="links">
                 <a class="homepage" href="https://redirection.conorhughes.me" target="_blank"><i class="fa fa-globe"></i></a>
@@ -41,7 +36,6 @@
             </div>
             <h3 class="version">Version 1.0.0</h3>
         </div>
-    </div>
     </div>
 </body>
 

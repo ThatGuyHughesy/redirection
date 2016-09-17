@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(function(details) {
-    localStorage.setItem('ngStorage-power', true);
-    localStorage.setItem('ngStorage-count', 0);
+    localStorage.setItem('power', true);
+    localStorage.setItem('count', 0);
     getUrls();
 });
 
