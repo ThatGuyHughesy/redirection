@@ -1,6 +1,6 @@
 {
     "name": "Redirection",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "The End Of Annoying Wait Pages!",
     "background": {
         "scripts": ["scripts/jquery/jquery-2.1.3.min.js", "scripts/services/urls.js", "scripts/services/message.js", "scripts/services/redirect.js"]

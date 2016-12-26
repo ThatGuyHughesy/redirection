@@ -14,6 +14,16 @@ chrome.runtime.sendMessage({
     }
 });
 
+var performTests = function (callback) {
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        var thisTab = tabs[0];
+        chrome.tabs.executeScript(thisTab.id, {file: 'scripts/variable-checker.js'}, function(data) {
+            var response = data[0].response;
+            callback(response);
+        });
+    });
+};
+
 function checkUrl(element, index, array) {
     if (url.indexOf(element.url) > -1) {
         switch (element.action) {
@@ -44,6 +54,9 @@ function checkUrl(element, index, array) {
             case 9:
                 console.log($('.download-timer').html())
                 redirect($('.download-timer center').attr("href"));
+                break;
+            case 10:
+                redirect(getForbesRedirectUrl(url));
                 break;
         }
     }
@@ -94,4 +107,10 @@ function clickButtonByName(buttonName) {
     } catch (err) {
         'Error redirecting!';
     }
+}
+
+function getForbesRedirectUrl(url){
+    var start = url.indexOf("toURL=") + 6;
+    var end = url.indexOf("&refURL");
+    return url.substring(start, end);
 }

@@ -1,5 +1,6 @@
 var count;
 var power;
+var version;
 
 $(document).ready(function() {
     count = localStorage['count'];
@@ -14,6 +15,8 @@ $(document).ready(function() {
         power = true;
         localStorage['power'] = power;
     }
+
+    version = chrome.runtime.getManifest().version;
 
     setState();
 
@@ -37,6 +40,7 @@ $(document).ready(function() {
             off();
         }
         $('#count').html(count);
+        $('#version').html(version);
     };
 
     function on() {
